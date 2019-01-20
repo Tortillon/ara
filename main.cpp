@@ -243,11 +243,11 @@ int main()
                                 {
                                     for(int k = 0; k < 17; k++){
                                         for (int l = 0; l < 34; l++){
-                                            if(canAttack(wsk_to_board), xx, yy, k, l){
+                                            if(canAttack(front_fields, xx, yy, k, l)){
                                                 //pokoloruj pole wsk_to_board[(xx+k)*34 + yy] na czerwono;
                                                 front_fields[34*figure_x+figure_y].setColor(sf::Color::Red);
                                             }
-                                            if(canMove(wsk_to_board), xx, yy, k, l){
+                                            if(canMove(front_fields, xx, yy, k, l){
                                                 //pokoloruj pole wsk_to_board[(xx+k)*34 + yy] na pomaranczowo;
                                                 front_fields[34*figure_x+figure_y].setColor(sf::Color::Orange); 
                                             }     
