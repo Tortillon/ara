@@ -45,7 +45,6 @@
 		<Linker>
 			<Add directory="lib/SFML-2.5.1/lib" />
 		</Linker>
-		<Unit filename="Messages.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="wczytaj.h" />
 		<Extensions>
