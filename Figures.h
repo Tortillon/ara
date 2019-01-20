@@ -387,3 +387,19 @@ bool Action(Pole *wsk_to_board, int x, int y, int targetX, int targetY)
     ms_message("Niepoprawne dane!!!");
     return 0;
 }
+
+
+//===================[highLight]=================
+
+/*void highLight(Pole *wsk_to_board, int xx, int yy,){
+    for(int k = xx; k < 17; k++){
+        for (int l = yy; l < 34; l++){
+            if(canAttack(wsk_to_board), xx, yy, k, l){
+                //pokoloruj pole wsk_to_board[(xx+k)*34 + yy] na czerwono;
+            }
+            if(canMove(wsk_to_board), xx, yy, k, l){
+                //pokoloruj pole wsk_to_board[(xx+k)*34 + yy] na pomaranczowo;
+            }     
+        }
+    }
+}*/

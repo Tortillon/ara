@@ -44,8 +44,8 @@ charge;9;27;2
 ghost;9;29;2
 charge;10;6;1
 pawn;10;8;1
+charge;10;20;2
 pawn;10;24;2
-charge;10;26;2
 pawn;11;7;1
 pawn;11;25;2
 tower;12;6;1

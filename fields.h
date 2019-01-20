@@ -1,12 +1,7 @@
-void backgroundFields()
+#include "Figures.h"
+
+void prepare_background_front_Fields()
 {
-    sf::Texture Background;
-    if (!Background.loadFromFile("img/dupa.png"))
-    {
-
-    }
-
-
     front_fields = new Pole [578];
     // Przygotowanie tablic
 
@@ -16,6 +11,7 @@ void backgroundFields()
         {
             front_fields[i * board_size_y + j].name = "empty";
             front_fields[i * board_size_y + j].owner = 0;
+			set_figure_texture(&front_fields[i * board_size_y + j]);
             if(i%2==j%2)
             {
                 background_fields[i][j].setTexture(Background);
@@ -61,60 +57,5 @@ void backgroundFields()
     {
         background_fields[i][33].setPosition(sf::Vector2f(10000, 10000));
         front_fields[i * board_size_y + 33].setPosition(sf::Vector2f(10000, 10000));
-    }
-
-
-
-}
-
-frontFields(){
-    sf::Texture Background;
-    if (!Background.loadFromFile("img/dupa.png"))
-    {
-
-    }
-
-    for(int i = 0; i < 17; i ++)
-    {
-        for(int j = 0; j < 34; j ++)
-        {
-            if(front_fields[i * board_size_y + j].name == "pawn")
-            {
-                front_fields[i * board_size_y + j].setTexture(texture_pawn);
-            }
-            else if(front_fields[i * board_size_y + j].name == "tower")
-            {
-                front_fields[i * board_size_y + j].setTexture(texture_tower);
-            }
-            else if(front_fields[i * board_size_y + j].name == "ghost")
-            {
-                front_fields[i * board_size_y + j].setTexture(texture_ghost);
-            }
-            else if(front_fields[i * board_size_y + j].name == "cav")
-            {
-                front_fields[i * board_size_y + j].setTexture(texture_cav);
-            }
-            else if(front_fields[i * board_size_y + j].name == "king")
-            {
-                front_fields[i * board_size_y + j].setTexture(texture_king);
-            }
-            else if(front_fields[i * board_size_y + j].name == "mystery")
-            {
-                front_fields[i * board_size_y + j].setTexture(texture_mystery);
-            }
-            else if(front_fields[i * board_size_y + j].name == "charge")
-            {
-                front_fields[i * board_size_y + j].setTexture(texture_charge);
-            }
-            else if(front_fields[i * board_size_y + j].name == "notexist")
-            {
-                front_fields[i * board_size_y + j].setTexture(texture_notexist);
-            }
-            else if(front_fields[i * board_size_y + j].name == "empty")
-            {
-                front_fields[i * board_size_y + j].setTexture(texture_nothing);
-            }
-            background_fields[i][j].setTexture(Background);
-        }
     }
 }
