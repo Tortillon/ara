@@ -11,7 +11,7 @@ bool click=0;
 #include "highlight.h"
 #include "AI.h"
 
-bool ai=1;
+bool ai=0;
 
 
 
