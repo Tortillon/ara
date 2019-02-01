@@ -30,8 +30,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                                     if(l>=0&&l<34){
                                         if((x%2==l%2)&&front_fields[x*34+l].name!="notexist"){
 
-                                                if(canAttack(front_fields, x, y, x, l)||(CanMove(front_fields, x, y, x, l)))
-                                                    Action(front_fields, x, y, x, l);
+                                                if(canAttack(front_fields, x, y, x, l)||(canMove(front_fields, x, y, x, l)))
+                                                    action(front_fields, x, y, x, l);
                                                     int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                                     if(newWartosc<bestWartosc){
                                                         bestWartosc=newWartosc;
@@ -50,8 +50,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                                 int a;
                                 tura==1?a=1:a=-1;
                                 if(x>0){
-                                    if(canAttack(front_fields, x, y, x-1, y+a)||CanMove(front_fields, x, y, x-1, y+a)){
-                                        Action(front_fields, x, y, x-1, y+a);
+                                    if(canAttack(front_fields, x, y, x-1, y+a)||canMove(front_fields, x, y, x-1, y+a)){
+                                        action(front_fields, x, y, x-1, y+a);
                                         int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                         if(newWartosc<bestWartosc){
                                             bestWartosc=newWartosc;
@@ -67,8 +67,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
 
                                 }
                                 if(x<16){
-                                    if(canAttack(front_fields, x, y, x+1, y+a)||CanMove(front_fields, x, y, x+1, y+a)){
-                                        Action(front_fields, x, y, x+1, y+a);
+                                    if(canAttack(front_fields, x, y, x+1, y+a)||canMove(front_fields, x, y, x+1, y+a)){
+                                        action(front_fields, x, y, x+1, y+a);
                                         int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                         if(newWartosc<bestWartosc){
                                             bestWartosc=newWartosc;
@@ -86,8 +86,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         for(int k = x-2; k <= x+2; k++){
                             for (int l = y - 4; l<= y+4; l++){
                                 if(k>-1&&k<17&&l>=0&&l<34){
-                                    if(canAttack(front_fields, x, y, k, l)||CanMove(front_fields, x, y, k, l)){
-                                        Action(front_fields, x, y, k, l);
+                                    if(canAttack(front_fields, x, y, k, l)||canMove(front_fields, x, y, k, l)){
+                                        action(front_fields, x, y, k, l);
                                         int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                         if(newWartosc<bestWartosc){
                                             bestWartosc=newWartosc;
@@ -111,8 +111,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         for(int k = x-1; k <= x+1; k++){
                             for (int l = y-2; l <= y+2; l++){
                                 if(k>-1&&k<17&&l>=0&&l<34){
-                                    if(canAttack(front_fields, x, y, k, l)||CanMove(front_fields, x, y, k, l)){
-                                        Action(front_fields, x, y, k, l);
+                                    if(canAttack(front_fields, x, y, k, l)||canMove(front_fields, x, y, k, l)){
+                                        action(front_fields, x, y, k, l);
                                         int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                         if(newWartosc<bestWartosc){
                                             bestWartosc=newWartosc;
@@ -135,8 +135,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         for(int k = x-2; k <= x+2; k++){
                             for (int l = y-4; l <= y+4; l++){
                                 if(k>-1&&k<17&&l>=0&&l<34){
-                                    if(CanMove(front_fields, x, y, k, l)){
-                                        Action(front_fields, x, y, k, l);
+                                    if(canMove(front_fields, x, y, k, l)){
+                                        action(front_fields, x, y, k, l);
                                         int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                         if(newWartosc<bestWartosc){
                                             bestWartosc=newWartosc;
@@ -157,7 +157,7 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                             nx++;
                             ny++;
                             if(canAttack(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -177,7 +177,7 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                             nx--;
                             ny--;
                             if(canAttack(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                                action(front_fields, x, y, nx, ny);
 
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
@@ -199,7 +199,7 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                             nx++;
                             ny--;
                             if(canAttack(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -219,7 +219,7 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                             nx--;
                             ny++;
                             if(canAttack(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -235,7 +235,7 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         }
                         for(int i=y+6; i<=y+8; i+=2){
                             if(canAttack(front_fields, x, y, x, i)){
-                                Action(front_fields, x, y, x, i);
+                                action(front_fields, x, y, x, i);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -251,7 +251,7 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         }
                         for(int i=y-8; i<=y-6; i+=2){
                             if(canAttack(front_fields, x, y, x, i)){
-                                Action(front_fields, x, y, x, i);
+                                action(front_fields, x, y, x, i);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -272,8 +272,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                     else if(front_fields[x* 34 + y].name == "charge"){
                             for (int l = 0; l <= 33; l++){
                                 if(l>=0&&l<34){
-                                    if(canAttack(front_fields, x, y, x, l)||CanMove(front_fields, x, y, x, l)){
-                                        Action(front_fields, x, y, x, l);
+                                    if(canAttack(front_fields, x, y, x, l)||canMove(front_fields, x, y, x, l)){
+                                        action(front_fields, x, y, x, l);
                                         int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                         if(newWartosc<bestWartosc){
                                             bestWartosc=newWartosc;
@@ -289,8 +289,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                                 }
                             }
                             if(x-2>0){
-                                if(CanMove(front_fields, x, y, x-2, y)){
-                                    Action(front_fields, x, y, x-2, y);
+                                if(canMove(front_fields, x, y, x-2, y)){
+                                    action(front_fields, x, y, x-2, y);
                                     int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                     if(newWartosc<bestWartosc){
                                         bestWartosc=newWartosc;
@@ -305,8 +305,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                                 }
                             }
                             if(x+2>0){
-                                if(CanMove(front_fields, x, y, x+2, y)){
-                                    Action(front_fields, x, y, x+2, y);
+                                if(canMove(front_fields, x, y, x+2, y)){
+                                    action(front_fields, x, y, x+2, y);
                                     int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                     if(newWartosc<bestWartosc){
                                         bestWartosc=newWartosc;
@@ -324,8 +324,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         int nx=x+1;
                         int ny=y+1;
                         while(nx<=16&&ny<=33){
-                            if(CanMove(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                            if(canMove(front_fields, x, y, nx, ny)){
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -344,8 +344,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         nx=x-1;
                         ny=y-1;
                         while(nx>=0&&ny>=0){
-                            if(CanMove(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                            if(canMove(front_fields, x, y, nx, ny)){
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -364,8 +364,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         nx=x+1;
                         ny=y-1;
                         while(nx<=16&&ny>=0){
-                            if(CanMove(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                            if(canMove(front_fields, x, y, nx, ny)){
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -384,8 +384,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         nx=x-1;
                         ny=y+1;
                         while(nx>=0&&ny<=33){
-                            if(CanMove(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                            if(canMove(front_fields, x, y, nx, ny)){
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -407,8 +407,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         int ny=y+1;
                         while(nx<17&&ny<34){
 
-                            if(canAttack(front_fields, x, y, nx, ny)||CanMove(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                            if(canAttack(front_fields, x, y, nx, ny)||canMove(front_fields, x, y, nx, ny)){
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -427,8 +427,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         nx=x-1;
                         ny=y-1;
                         while(nx>0&&ny>0){
-                            if(canAttack(front_fields, x, y, nx, ny)||CanMove(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                            if(canAttack(front_fields, x, y, nx, ny)||canMove(front_fields, x, y, nx, ny)){
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -447,8 +447,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         nx=x+1;
                         ny=y-1;
                         while(nx<17&&ny>0){
-                            if(canAttack(front_fields, x, y, nx, ny)||CanMove(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                            if(canAttack(front_fields, x, y, nx, ny)||canMove(front_fields, x, y, nx, ny)){
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -467,8 +467,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                         nx=x-1;
                         ny=y+1;
                         while(nx>0&&ny<34){
-                            if(canAttack(front_fields, x, y, nx, ny)||CanMove(front_fields, x, y, nx, ny)){
-                                Action(front_fields, x, y, nx, ny);
+                            if(canAttack(front_fields, x, y, nx, ny)||canMove(front_fields, x, y, nx, ny)){
+                                action(front_fields, x, y, nx, ny);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;
@@ -485,8 +485,8 @@ ruch znajdzRuchP(Pole *wsk_to_board){
                             ny++;
                         }
                         for(int i=0; i<34; i++){
-                            if(canAttack(front_fields, x, y, x, i)||CanMove(front_fields, x, y, x, i)){
-                                Action(front_fields, x, y, x, i);
+                            if(canAttack(front_fields, x, y, x, i)||canMove(front_fields, x, y, x, i)){
+                                action(front_fields, x, y, x, i);
                                 int newWartosc=zliczWartosciAI(front_fields)-zliczWartosciP(front_fields);
                                 if(newWartosc<bestWartosc){
                                     bestWartosc=newWartosc;

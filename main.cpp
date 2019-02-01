@@ -342,7 +342,7 @@ int main()
                                     target_y = j;
                                     if(front_fields[34*figure_x+figure_y].owner == tura)
                                     {
-                                        if(Action(front_fields, figure_x, figure_y, target_x, target_y))
+                                        if(action(front_fields, figure_x, figure_y, target_x, target_y))
                                         {
                                             if(tura == 1) tura = 2;
                                             else tura = 1;
@@ -399,7 +399,7 @@ int main()
                 }else if(!win){
                     if(!AI(front_fields));
                     std::cout<<"doszlem\n";
-                    if(!Action(front_fields, aiFX, aiFY, aiTX, aiTY));
+                    if(!action(front_fields, aiFX, aiFY, aiTX, aiTY));
                     mouse_pressed=0;
                     if(tura == 1) tura = 2;
                     else tura = 1;

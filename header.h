@@ -32,6 +32,16 @@
 
     //----------------------------------------
 
+    int aiFX;
+    int aiFY;
+    int aiTX;
+    int aiTY;
+
+    sf::RenderWindow window(sf::VideoMode(VIEW_HEIGHT, VIEW_HEIGHT), "A.R.A.");
+    sf::Sprite Kursor;
+
+
+
     int figure_x = 0;
     int figure_y = 0;
     int target_x = 0;
