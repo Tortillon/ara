@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-#.dll
+*.dll
 # Compiled Object files
 *.slo
 *.lo
@@ -22,16 +22,93 @@
 # Compiled Static libraries
 *.lai
 *.la
-#*.a
+*.a
 *.lib
 
 # Executables
-#*.exe
+*.exe
 *.out
 *.app
 
-#caly shit z codeblocksa
-#ara.cbp
-ara.depend
-ara.layout
+# CodeBlocks files
+*.cpb
+*.layout
+*.depend
+araMenu/ara.cpb
 
+# Folders 
+lib/
+Saves/
+saves/
+obj/
+bin/
+
+araMenu/bin
+araMenu/Saves
+araMenu/lib
+
+# Helpful files for programmers
+idea.txt
+Bugs.txt
+
+# Deli's Sublime files
+main.sublime-project
+main.sublime-workspace
+# Prerequisites
+*.d
+*.dll
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# CodeBlocks files
+*.cpb
+*.layout
+*.depend
+araMenu/ara.cpb
+
+# Folders 
+lib/
+Saves/
+obj/
+bin/
+
+araMenu/bin
+araMenu/Saves
+araMenu/lib
+
+# Helpful files for programmers
+idea.txt
+Bugs.txt
+
+# Deli's Sublime files
+main.sublime-project
+main.sublime-workspace
+
+# Linux scripts
+*.sh

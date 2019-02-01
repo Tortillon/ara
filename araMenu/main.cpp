@@ -1,17 +1,17 @@
 #define _WIN32_WINNT 0x0500
-#include "../lib/SFML-2.5.1/include/SFML/Graphics.hpp"
-#include "../lib/SFML-2.5.1/include/SFML/Audio.hpp"
+#include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
 #include <string>
-#include <windows.h>
-#include "Messages.h"
+//#include <windows.h>
+#include "messages.h"
 #include "wczytaj.h"
 #include <unistd.h>
 
 
-
+//MENU
 int a;
 sf::Vector2i mouse_position;
 bool mouse_pressed = 0;
@@ -32,24 +32,24 @@ int main()
 
 
     sf::Music music;
-    if (!music.openFromFile("sounds\\music.wav"))ms_error(24, "nie zaladowano music.wav");
+    if (!music.openFromFile("sounds/music.wav"))ms_error(24, "nie zaladowano music.wav");
     music.setVolume(10.f);
     music.play();
 
 
     sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("sounds\\sound.wav"))
+    if (!buffer.loadFromFile("sounds/sound.wav"))
         ms_error(22, "nie zaladowano dzwieku");
     sf::Sound sound;
     sound.setBuffer(buffer);
     sound.setVolume(250.f);
 
 
-    ShowWindow(GetConsoleWindow(), SW_HIDE);
+    //ShowWindow(GetConsoleWindow(), SW_HIDE);
     sf::RenderWindow window(sf::VideoMode(1000, 720), "A.R.A");
     window.setMouseCursorVisible(false);
     sf::Texture tlo;
-    if (!tlo.loadFromFile("img\\backgroundImage.png"))
+    if (!tlo.loadFromFile("img/backgroundImage.png"))
     {
         ms_error(12, "nie zaladowano menuBackground", true);
     }
@@ -57,7 +57,7 @@ int main()
     Tlo.setTexture(tlo);
 
     sf::Texture loading;
-    if (!loading.loadFromFile("img\\loadingSave.png"))
+    if (!loading.loadFromFile("img/loadingSave.png"))
     {
         ms_error(12, "nie zaladowano loadingSave", true);
     }
@@ -66,7 +66,7 @@ int main()
     //window.draw(Loading);
 
     sf::Texture play;
-    if (!play.loadFromFile("img\\play.png"))
+    if (!play.loadFromFile("img/play.png"))
     {
         ms_error(19, "nie zaladowano play", true);
     }
@@ -77,7 +77,7 @@ int main()
 
 
     sf::Texture exit;
-    if (!exit.loadFromFile("img\\exit.png"))
+    if (!exit.loadFromFile("img/exit.png"))
     {
         ms_error(24, "exit", true);
     }
@@ -87,7 +87,7 @@ int main()
     Exit.setScale(sf::Vector2f(0.6, 0.6));
 
     sf::Texture wczytaj;
-    if (!wczytaj.loadFromFile("img\\wczytaj.png"))
+    if (!wczytaj.loadFromFile("img/wczytaj.png"))
     {
         ms_error(30, "nie zaladowano edit", true);
     }
@@ -125,7 +125,7 @@ int main()
                 music.stop();
                 saveToFile(0);
                 window.close();
-                system("..\\..\\..\\bin\\Debug\\ara.exe");
+                system("./sfml-app.o");
 
             }else if (mouse_position.x>=300&&mouse_position.x<707&&mouse_position.y>358&&mouse_position.y<473){
                 sound.play();
@@ -134,11 +134,13 @@ int main()
             }else if(mouse_position.x>=400&&mouse_position.x<560&&mouse_position.y>550&&mouse_position.y<630){
                 sound.play();
                 music.stop();
-                window.close();
                 return 0;
+                window.close();
+                //return 0;
             }
 
         }
+        //ladowanie save
         if(isLoadingSave){
             mouse_pressed=0;
             while(true){
@@ -159,35 +161,35 @@ int main()
                         saveToFile(1);
                         music.stop();
                         window.close();
-                        system("..\\..\\..\\bin\\Debug\\ara.exe");
+                        system("./sfml-app.o");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>170&&mouse_position.y<290){
                         sound.play();
                         saveToFile(2);
                         music.stop();
                         window.close();
-                        system("..\\..\\..\\bin\\Debug\\ara.exe");
+                        system("./sfml-app.o");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>320&&mouse_position.y<430){
                         sound.play();
                         saveToFile(3);
                         music.stop();
                         window.close();
-                        system("..\\..\\..\\bin\\Debug\\ara.exe");
+                        system("./sfml-app.o");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>470&&mouse_position.y<570){
                         sound.play();
                         saveToFile(4);
                         music.stop();
                         window.close();
-                        system("..\\..\\..\\bin\\Debug\\ara.exe");
+                        system("./sfml-app.o");
                     }
                     if(mouse_position.x>=140&&mouse_position.x<860&&mouse_position.y>610&&mouse_position.y<710){
                        sound.play();
                        saveToFile(5);
                        music.stop();
                        window.close();
-                       system("..\\..\\..\\bin\\Debug\\ara.exe");
+                       system("./sfml-app.o");
                     }
                 }
             }
