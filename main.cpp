@@ -13,6 +13,7 @@ bool click=0;
 
 bool ai=0;
 bool firstMenu=1;
+bool firstLoad=0;
 bool ruch=1;
 
 int zakazaneX;
@@ -101,27 +102,112 @@ int main()
     //====================================================================PETLA GLOWNA================================================================//
     //===================================================================PETLA GLOWNA=============================================================//
     //=====================================================================PETLA GLOWNA===========================================================//
-
+while(true){
     while (window.isOpen()&&firstMenu)
     {
-
-
+        float scaleMenuX = 1920/ sf::VideoMode::getDesktopMode().width;
+        float scaleMenuY = 1080/ sf::VideoMode::getDesktopMode().height;
+        //std::cout<<"x: "<<sf::Mouse::getPosition().x <<"y: "<<sf::Mouse::getPosition().y<<"\n";
         sf::Event event;
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+        if(sf::Mouse::getPosition().x>340*scaleMenuX&&sf::Mouse::getPosition().x<700*scaleMenuX&&
+           sf::Mouse::getPosition().y>400*scaleMenuY&&sf::Mouse::getPosition().y<560*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+                firstMenu=0;
+                }
+                PlaySprite.setColor(sf::Color::White);
+        }else PlaySprite.setColor(sf::Color(255, 255, 255, 200));
 
-            if(sf::Mouse::getPosition().x>350&&sf::Mouse::getPosition().x<750&&
-               sf::Mouse::getPosition().y>450&&sf::Mouse::getPosition().y<600)firstMenu=0;
-        }
+
+
+        if(sf::Mouse::getPosition().x>1095*scaleMenuX&&sf::Mouse::getPosition().x<1655*scaleMenuX&&
+           sf::Mouse::getPosition().y>440*scaleMenuY&&sf::Mouse::getPosition().y<550*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+                    firstMenu=0;
+                    firstLoad=1;
+                }
+                LoadGameSprite.setColor(sf::Color::White);
+        }else LoadGameSprite.setColor(sf::Color(255, 255, 255, 200));
+
+
+
+        if(sf::Mouse::getPosition().x>500*scaleMenuX&&sf::Mouse::getPosition().x<830*scaleMenuX&&
+           sf::Mouse::getPosition().y>635*scaleMenuY&&sf::Mouse::getPosition().y<820*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+                }
+                TutorialSprite.setColor(sf::Color::White);
+        }else TutorialSprite.setColor(sf::Color(255, 255, 255, 200));
+
+
+        if(sf::Mouse::getPosition().x>1075*scaleMenuX&&sf::Mouse::getPosition().x<1400*scaleMenuX&&
+           sf::Mouse::getPosition().y>635*scaleMenuY&&sf::Mouse::getPosition().y<840*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+                }
+                OptionsSprite.setColor(sf::Color::White);
+        }else OptionsSprite.setColor(sf::Color(255, 255, 255, 200));
+
+        if(sf::Mouse::getPosition().x>55*scaleMenuX&&sf::Mouse::getPosition().x<360*scaleMenuX&&
+           sf::Mouse::getPosition().y>918*scaleMenuY&&sf::Mouse::getPosition().y<1010*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+                }
+                AutorsSprite.setColor(sf::Color::White);
+        }else AutorsSprite.setColor(sf::Color(255, 255, 255, 200));
+
+        if(sf::Mouse::getPosition().x>1680*scaleMenuX&&sf::Mouse::getPosition().x<1855*scaleMenuX&&
+           sf::Mouse::getPosition().y>944*scaleMenuY&&sf::Mouse::getPosition().y<1018*scaleMenuY){
+               if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+                    return 0;
+                }
+                ExitSprite.setColor(sf::Color::White);
+        }else ExitSprite.setColor(sf::Color(255, 255, 255, 200));
+
+
 
         Kursor.setTexture(kursor);
         Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
         //std::cout<<Kursor.getPosition().x<<"x"<<Kursor.getPosition().y<<"\n";
-        window.draw(firstMenuSprite);
+        window.draw(menu2Sprite);
+        window.draw(ARASprite);
+        window.draw(OptionsSprite);
+        window.draw(ExitSprite);
+        window.draw(AutorsSprite);
+        window.draw(LoadGameSprite);
+        window.draw(PlaySprite);
+        window.draw(TutorialSprite);
+        window.draw(Kursor);
+
+
+        window.display();
+        window.clear();
+    }
+
+    while (window.isOpen()&&!firstMenu && firstLoad)
+    {
+        float scaleMenuX = 1920/ (menu1.getSize().x * menu1Sprite.getScale().x  );
+        float scaleMenuY = 1080/ (menu1.getSize().y * menu1Sprite.getScale().y  );
+        //std::cout<<"x: "<<sf::Mouse::getPosition().x <<"y: "<<sf::Mouse::getPosition().y<<"\n";
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+
+        Kursor.setTexture(kursor);
+        Kursor.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
+        window.draw(savePlusSubSprite);
+        window.draw(saveBookSprite);
+        window.draw(saveslot1Sprite);
+        window.draw(saveslot2Sprite);
+        window.draw(saveslot3Sprite);
+        window.draw(saveslot4Sprite);
+        window.draw(saveslot5Sprite);
+        window.draw(saveslot6Sprite);
         window.draw(Kursor);
 
 
@@ -131,9 +217,8 @@ int main()
 
     bool s=1;
 
-    while (window.isOpen()&&!firstMenu)
+    while (window.isOpen()&&!firstMenu && !firstLoad)
     {
-
         if(s){
             s=0;
             LoadSave(saveChosing(), front_fields);
@@ -548,6 +633,6 @@ int main()
 
 
     }
-
+}
     return 0;
 }

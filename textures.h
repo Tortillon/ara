@@ -27,10 +27,56 @@ sf::Texture BackgroundBroken;
 sf::Texture BackgroundBroken2;
 sf::Texture BackgroundBroken3;
 // menu (+ sprite'y)
-sf::Texture firstMenuTexture;
+sf::Texture menu1;
+sf::Texture menu2;
+sf::Texture ARA;
+sf::Texture Options;
+sf::Texture Exit;
+sf::Texture Autors;
+sf::Texture LoadGame;
+sf::Texture Play;
+sf::Texture Tutorial;
+sf::Texture savePlusSub;
+sf::Texture saveBook;
+sf::Texture saveslot1;
+sf::Texture saveslot2;
+sf::Texture saveslot3;
+sf::Texture saveslot4;
+sf::Texture saveslot5;
+sf::Texture saveslot6;
+sf::Texture saveBack;
+sf::Texture popExit;
+sf::Texture popResume;
+sf::Texture popSettings;
+sf::Texture popMenu;
+sf::Texture popSave;
+
+sf::Sprite popExitSprite;
+sf::Sprite popResumeSprite;
+sf::Sprite popSettingsSprite;
+sf::Sprite popMenuSprite;
+sf::Sprite popSaveSprite;
+sf::Sprite menu1Sprite;
+sf::Sprite menu2Sprite;
+sf::Sprite ARASprite;
+sf::Sprite OptionsSprite;
+sf::Sprite ExitSprite;
+sf::Sprite AutorsSprite;
+sf::Sprite LoadGameSprite;
+sf::Sprite PlaySprite;
+sf::Sprite TutorialSprite;
+sf::Sprite savePlusSubSprite;
+sf::Sprite saveBookSprite;
+sf::Sprite saveslot1Sprite;
+sf::Sprite saveslot2Sprite;
+sf::Sprite saveslot3Sprite;
+sf::Sprite saveslot4Sprite;
+sf::Sprite saveslot5Sprite;
+sf::Sprite saveslot6Sprite;
+sf::Sprite saveBackSprite;
+
 sf::Texture menu;
 sf::Texture save;
-sf::Sprite firstMenuSprite;
 sf::Sprite Menu;
 sf::Sprite Save;
 sf::Sprite WinTexture;
@@ -138,18 +184,63 @@ void loadFiguresTexture(){
 }
 
 void loadMenuTexture(){
-    if (!firstMenuTexture.loadFromFile("graphics/menu/menu2PlusSub.png"))
+    if (!Play.loadFromFile("graphics/menu/Sub/Play.png"))
     {
-        ms_error(666, "graphics/menu/menu2PlusSub.png", 1);
+        ms_error(666, "graphics/menu/Sub/Play.png", 1);
     }
-    if (!menu.loadFromFile("img/menu.png"))
+    if (!Tutorial.loadFromFile("graphics/menu/Sub/Tutorial.png"))
     {
-        ms_error(666, "img/menu.png", 1);
+        ms_error(666, "graphics/menu/Sub/Tutorial.png", 1);
     }
-    if (!save.loadFromFile("img/save.png"))
+    if (!Options.loadFromFile("graphics/menu/Sub/Options.png"))
     {
-        ms_error(666, "img/save.png", 1);
+        ms_error(666, "graphics/menu/Sub/Options.png", 1);
     }
+    if (!LoadGame.loadFromFile("graphics/menu/Sub/LoadGame.png"))
+    {
+        ms_error(666, "graphics/menu/Sub/LoadGame.png", 1);
+    }
+    if (!Exit.loadFromFile("graphics/menu/sub/Exit.png"))
+    {
+        ms_error(666, "graphics/menu/sub/Exit.png", 1);
+    }
+    if (!Autors.loadFromFile("graphics/menu/sub/Autors.png"))
+    {
+        ms_error(666, "graphics/menu/sub/Autors.png", 1);
+    }
+    if (!ARA.loadFromFile("graphics/menu/Sub/ARA.png"))
+    {
+        ms_error(666, "graphics/menu/sub/ARA.png", 1);
+    }
+    if (!menu2.loadFromFile("graphics/menu/menu2.png"))
+    {
+        ms_error(666, "graphics/menu/menu2.png", 1);
+    }
+    if (!menu1.loadFromFile("graphics/menu/menu1.png"))
+    {
+        ms_error(666, "graphics/menu/menu1.png", 1);
+    }
+    if (!popExit.loadFromFile("graphics/popMenu/exit.png"))
+    {
+        ms_error(666, "graphics/menu/popMenu/exit.png", 1);
+    }
+    if (!popSettings.loadFromFile("graphics/popMenu/settings.png"))
+    {
+        ms_error(666, "graphics/menu/popMenu/settings.png", 1);
+    }
+    if (!popResume.loadFromFile("graphics/popMenu/resume.png"))
+    {
+        ms_error(666, "graphics/menu/popMenu/resume.png", 1);
+    }
+    if (!popMenu.loadFromFile("graphics/popMenu/menu.png"))
+    {
+        ms_error(666, "graphics/menu/popMenu/menu.png", 1);
+    }
+    if (!popSave.loadFromFile("graphics/popMenu/save.png"))
+    {
+        ms_error(666, "graphics/menu/popMenu/save.png", 1);
+    }
+
     if (!font.loadFromFile("fonts/arial.ttf"))
     {
         ms_error(666, "fonts/arial.ttf", 1);
@@ -161,6 +252,34 @@ void loadMenuTexture(){
     if(!backroundImage.loadFromFile("graphics/rzeczy/tloLight.jpg")){
         ms_error(666, "graphics/rzeczy/tloLight.jpg");
     }
+    if(!savePlusSub.loadFromFile("graphics/saveslots/savePlusSub.png")){
+        ms_error(666, "graphics/saveslots/savePlusSub.png");
+    }
+    if(!saveBook.loadFromFile("graphics/saveslots/saveBook.png")){
+        ms_error(666, "graphics/saveslots/savePlusSub.png");
+    }
+    if(!saveBack.loadFromFile("graphics/saveslots/Sub/back.png")){
+        ms_error(666, "graphics/saveslots/Sub/back.png");
+    }
+    if(!saveslot1.loadFromFile("graphics/saveslots/sub/saveslot1.png")){
+        ms_error(666, "graphics/saveslots/sub/saveslot1.png");
+    }
+    if(!saveslot2.loadFromFile("graphics/saveslots/sub/saveslot2.png")){
+        ms_error(666, "graphics/saveslots/sub/saveslot2.png");
+    }
+    if(!saveslot3.loadFromFile("graphics/saveslots/sub/saveslot3.png")){
+        ms_error(666, "graphics/saveslots/sub/saveslot3.png");
+    }
+    if(!saveslot4.loadFromFile("graphics/saveslots/sub/saveslot4.png")){
+        ms_error(666, "graphics/saveslots/sub/saveslot4.png");
+    }
+    if(!saveslot5.loadFromFile("graphics/saveslots/sub/saveslot5.png")){
+        ms_error(666, "graphics/saveslots/sub/saveslot5.png");
+    }
+    if(!saveslot6.loadFromFile("graphics/saveslots/sub/saveslot6.png")){
+        ms_error(666, "graphics/saveslots/sub/saveslot6.png");
+    }
+
     //ustawianie tekstur dla menu itp.
     Menu.setTexture(menu);
     Menu.setPosition(sf::Vector2f(0, 0));
@@ -171,8 +290,42 @@ void loadMenuTexture(){
     Save.setPosition(sf::Vector2f(0, 0));
     Save.setScale(float(sf::VideoMode::getDesktopMode().width)/save.getSize().x, float(sf::VideoMode::getDesktopMode().height)/save.getSize().y);
 
-    firstMenuSprite.setTexture(firstMenuTexture);
-    firstMenuSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/firstMenuTexture.getSize().x, float(sf::VideoMode::getDesktopMode().height)/firstMenuTexture.getSize().y);
+    menu1Sprite.setTexture(menu1);
+    menu2Sprite.setTexture(menu2);
+    ARASprite.setTexture(ARA);
+    OptionsSprite.setTexture(Options);
+    ExitSprite.setTexture(Exit);
+    AutorsSprite.setTexture(Autors);
+    LoadGameSprite.setTexture(LoadGame);
+    PlaySprite.setTexture(Play);
+    TutorialSprite.setTexture(Tutorial);
+    savePlusSubSprite.setTexture(savePlusSub);
+    saveBookSprite.setTexture(saveBook);
+    saveslot1Sprite.setTexture(saveslot1);
+    saveslot2Sprite.setTexture(saveslot2);
+    saveslot3Sprite.setTexture(saveslot3);
+    saveslot4Sprite.setTexture(saveslot4);
+    saveslot5Sprite.setTexture(saveslot5);
+    saveslot6Sprite.setTexture(saveslot6);
+    saveBackSprite.setTexture(saveBack);
+    saveBookSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    savePlusSubSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    saveslot1Sprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    saveslot2Sprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    saveslot3Sprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    saveslot4Sprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    saveslot5Sprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    saveslot6Sprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    saveBackSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    menu1Sprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    menu2Sprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    ARASprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    OptionsSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    ExitSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    AutorsSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    LoadGameSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    PlaySprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
+    TutorialSprite.setScale(float(sf::VideoMode::getDesktopMode().width)/menu1.getSize().x, float(sf::VideoMode::getDesktopMode().height)/menu1.getSize().y);
 
     Kursor.setTexture(kursor);
     Kursor.setScale(0.5f, 0.5f);
