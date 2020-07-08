@@ -12,7 +12,7 @@ bool click=0;
 #include "AI.h"
 
 bool ai=0;
-bool firstMenu=1;
+bool firstMenu=0;
 bool firstLoad=0;
 bool ruch=1;
 
